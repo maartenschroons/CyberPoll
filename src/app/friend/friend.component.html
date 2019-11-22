@@ -18,6 +18,14 @@
                 <button mat-button class="addbtn" (click)="addFriend(user.userId)">Add friend</button>
                 {{user.username}}
             </div>
+            <div>
+                    <h2>Add a user without an account</h2>
+                    <mat-form-field>
+                        <input matInput placeholder="Email" required type="text" name="Email" #email />
+                    </mat-form-field>
+                    <button mat-raised-button class="addbtn" (click)="invite(email.value)">Invite user</button>
+                </div>
         </div>
     </div>
+    
 </div>

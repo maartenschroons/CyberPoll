@@ -39,6 +39,16 @@ export class FriendComponent implements OnInit {
   ngOnInit() {
   }
 
+  //Invite a user without an account
+  invite(email: string) {
+    //Add an empty user with only email entered
+    let user: User = new User(0, email, "", "", "");
+    this._userService.addUser(user).subscribe(result => {
+      //Send a Friendrequest to the new User
+      let notification: Notification = new Notification(0, parseInt(localStorage.getItem("userId")), result.userId, 1, "friend", false, false, "", "", "");
+      this._notificationService.addNotification(notification).subscribe();
+    });
+  }
 
 
 }
