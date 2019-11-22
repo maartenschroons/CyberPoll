@@ -1,0 +1,42 @@
+<div class="content container">
+        <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center">
+                <div fxFlex="20%">
+                        <h1 class="titel">Dashboard</h1>
+                </div>
+                <div fxFlex="60%"></div>
+                <div fxFlex="20%"><button mat-raised-button class="logoutbtn" (click)="logout()">Logout</button></div>
+
+        </div>
+        <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center">
+                <div fxFlex="20%">
+                        <h2>Welcome {{name}}!</h2>
+                </div>
+                <div fxFlex="30%"></div>
+                <div fxFlex="20%">
+                        <button (click)="goToNot()" matBadge="{{notificationAmount}}" matBadgeSize="large"
+                                matBadgeColor="accent" matBadgePosition="after" mat-raised-button
+                                matBadgeOverlap="false" class="notbtn">Notifications</button>
+                </div>
+                <div fxFlex="30%"></div>
+
+        </div>
+        <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center">
+                <div fxFlex="50%">
+                        <h3>Created polls:</h3>
+                        <div *ngIf="cpollsLength==0">You have not created any polls yet</div>
+                        <div *ngFor="let poll of (cpolls | async)" class="padding">
+                                {{poll.title}}  |
+                                <button mat-button class="pollbtn" (click)="showPoll(poll)">Go to the poll</button> |   
+                                <button mat-button class="deletebtn" (click)="deletePoll(poll.pollId)">Delete</button>
+                        </div>
+                </div>
+                <div fxFlex="50%">
+                        <h3>Participating polls:</h3>
+                        <div *ngIf="ppollsLength==0">You have not participated in any polls yet</div>
+                        <div *ngFor="let poll of (ppolls | async)" class="padding">
+                                {{poll.title}} by {{poll.creatorName}}  |
+                                <button mat-button class="pollbtn"(click)="showPoll(poll)">Go to the poll</button>
+                        </div>
+                </div>
+        </div>
+</div>

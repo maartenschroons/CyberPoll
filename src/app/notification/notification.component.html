@@ -1,0 +1,35 @@
+<div class="content container">
+    <div>
+        <h1 class="titel">Notifications</h1>
+    </div>
+    <div class="Titel" fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center">
+        <div fxFlex="50%">
+            <h2>Friend invitations</h2>
+            <div *ngIf="friendLength == 0"> You have no pending friend invites</div>
+            <div class="padding" *ngFor="let invite of (friendinvites | async)">
+                <button mat-button class="acceptbtn" (click)="acceptFriend(invite)">Accept</button>
+                <button mat-button class="deletebtn" (click)="ignore(invite)">Ignore</button> sent by
+                {{invite.senderName}}</div>
+        </div>
+        <div fxFlex="50%">
+            <h2>Sent invitations</h2>
+            <div *ngIf="sentLength == 0"> You have no unanswered sent invites</div>
+
+            <div *ngFor="let invite of (sentinvites | async)" class="padding">
+                <button mat-button class="deletebtn" (click)="deleteNotification(invite.notificationId)">Delete</button>
+                {{invite.type}}invitation to {{invite.receiverName}}</div>
+        </div>
+    </div>
+
+    <div>
+        <h2>Poll invitations</h2>
+        <div *ngIf="pollLength == 0"> You have no pending poll invites</div>
+        <div class="padding" *ngFor="let invite of (pollinvites | async)">
+            <button mat-button class="acceptbtn" (click)="acceptPoll(invite)">Accept</button>
+            <button mat-button class="deletebtn" (click)="ignore(invite)">Ignore</button> sent by
+            {{invite.senderName}} for poll
+            {{invite.pollName}}</div>
+    </div>
+
+
+</div>

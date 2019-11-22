@@ -1,0 +1,32 @@
+<div class="content container">
+    <div>
+        <h1 class="titel">Register</h1>
+    </div>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email" [(ngModel)]="model.email" type="email"
+                        name="Email" />
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Username" formControlName="username" [(ngModel)]="model.username"
+                        type="text" name="Username" />
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Password" formControlName="password" [(ngModel)]="model.password"
+                        type="password" name="Password" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Confirm password" formControlName="cpassword" type="password"
+                        name="CPassword" />
+                </mat-form-field>
+            </p>
+            <p><button [disabled]="!registerForm.valid" mat-raised-button color="primary" type="submit">Submit</button>
+            </p>
+        </form>
+    </div>

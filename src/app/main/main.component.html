@@ -1,0 +1,17 @@
+<div class="content container">
+    <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center">
+        <h1 class="titel" fxFlex="5%">Home</h1>
+        <div fxFlex="75%"></div>
+        <div fxFlex="20%">
+           
+            <button mat-raised-button routerLink="/login" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }" *ngIf="loggedIn" class="loginbtn">Login</button>
+            <button mat-raised-button routerLink="/register" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }" *ngIf="loggedIn" class="registerbtn">Register</button>
+            
+            </div>
+    </div>
+    <p class="info">There are currently {{useramount}} users!</p>
+    <p class="info">There are currently {{pollamount}} polls!</p>
+    <p class="info">There are currently {{denyamount}} denied friend invites!</p>
+</div>

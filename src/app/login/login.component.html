@@ -1,0 +1,24 @@
+<div class="content container">
+    <div>
+        <h1>Please log in to use this application, or register an account.</h1>
+    </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Username" formControlName="username" [(ngModel)]="model.username"
+                        type="text" id="username" name="username" />
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Password" formControlName="password" [(ngModel)]="model.password"
+                        type="password" id="password" name="password" />
+                </mat-form-field>
+            </p>
+            <p><button mat-raised-button [disabled]="!loginForm.valid" class="loginbtn" type="submit">Log in</button>
+            </p>
+        </form>
+
+        <button mat-raised-button class="registerbtn" routerLink="/register" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Register</button>
+    </div>

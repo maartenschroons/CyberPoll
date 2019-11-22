@@ -1,0 +1,11 @@
+@import '~@angular/material/theming'; //imports we need to set our custom style
+
+@include mat-core(); //includes the common styles for Angular Material
+
+$helloworld-app-primary: mat-palette(#0055ff); //color palette for primary
+$helloworld-app-accent: mat-palette($mat-orange); //color palette for accent
+$helloworld-app-warn: mat-palette($mat-red); //color palette for warn
+
+$helloworld-app-theme: mat-light-theme($helloworld-app-primary, $helloworld-app-accent, $helloworld-app-warn); //creates the theme object
+
+@include angular-material-theme($helloworld-app-theme); //theme object is included in the Angular Material Theme and will now be used throughout the application

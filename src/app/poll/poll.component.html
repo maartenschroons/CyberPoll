@@ -1,0 +1,54 @@
+<div class="content container">
+    <div class="Titel" fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center">
+        <div fxFlex="20%">
+            <h1 class="titel">{{title}}</h1>
+
+        </div>
+        <div fxFlex="80%">
+            <h2>Description:{{description}}</h2>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center">
+        <div fxFlex="60%">
+
+            <form (ngSubmit)="addAnswer()">
+                <h2>Add answer</h2>
+                <mat-form-field>
+                    <input matInput placeholder="Answer" required [(ngModel)]="answerModel.text" type="text"
+                        name="Answer" />
+                </mat-form-field>
+                <button mat-raised-button class="addbtn" type="submit">Add answer</button>
+            </form>
+            <div *ngFor="let answer of (answers | async)" fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center"
+                class="padding">
+                <div fxFlex="20%">{{answer.text}} </div>
+                <div fxFlex="10%"> {{answer.voteAmount}} votes</div>
+                <div fxFlex="10%">
+                    <button mat-button class="votebtn" (click)="Vote(answer.answerId)">Vote</button>
+                </div>
+                <div fxFlex="60%"></div>
+            </div>
+        </div>
+        <div fxFlex="40%" *ngIf="!creator"></div>
+        <div fxFlex="40%" *ngIf="creator">
+            <form (ngSubmit)="addUser()">
+                <h2>Add user</h2>
+                <mat-form-field>
+                    <mat-select name="userSelect" [(ngModel)]="userModel">
+                        <mat-option *ngFor="let friend of (friends | async)" [value]="friend">{{friend.username}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button class="addbtn" type="submit">Invite user</button>
+            </form>
+            <div class="padding" *ngFor="let selecteduser of (users | async)">{{selecteduser.username}}</div>
+        </div>
+    </div>
+    <div *ngIf="creator">
+        <h2>Add a user without an account</h2>
+        <mat-form-field>
+            <input matInput placeholder="Email" required type="text" name="Email" #email />
+        </mat-form-field>
+        <button mat-raised-button class="addbtn" (click)="invite(email.value)">Invite user</button>
+    </div>
+</div>

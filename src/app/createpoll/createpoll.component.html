@@ -1,0 +1,22 @@
+<div class="content container">
+    <div>
+        <h1 class="titel">Create a poll</h1>
+    </div>
+    <form [formGroup]="pollForm" (ngSubmit)="addPoll()">
+        <p>
+            <mat-form-field>
+                <input matInput placeholder="Title" [(ngModel)]="poll.title" type="text" formControlName="title"
+                    name="Title" />
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <textarea matInput placeholder="Description" [(ngModel)]="poll.description" type="text"
+                    formControlName="description" name="Description" ></textarea>
+            </mat-form-field>
+        </p>
+        <p><button mat-raised-button [disabled]="!pollForm.valid" class="loginbtn" type="submit">Create poll</button>
+        </p>
+    </form>
+
+</div>

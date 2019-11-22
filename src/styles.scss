@@ -1,1 +1,117 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/scss/bootstrap-grid";
+
+
+.header{
+    background-color:  #004d66;
+    color: white;
+}
+
+.nav{
+    background-color: #e6e6e6;
+}
+
+.content{
+    background-color:  #f2f2f2;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+p{
+    font-size: 17px;
+}
+
+li{
+    font-size: 17px;
+    margin: 5px;
+}
+
+.deletebtn{
+    height:30px;
+    width: 70px;
+    background-color: red;
+    color: white;
+}
+
+.pollbtn{
+    height:30px;
+    background-color:  #0088cc;
+    color: white;
+}
+
+.titel{
+    font-size: 40px;
+    position: relative; 
+    text-decoration: underline;
+}
+h2{
+    font-size: 27px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+
+.loginbtn{
+    height:40px;
+    width: 100px;
+    background-color: #0088cc;
+    color: white;
+}
+.padding{
+    margin:5px;
+}
+
+.searchbtn{
+    height:40px;
+    background-color: #0088cc;
+    color: white;
+}
+
+.votebtn{
+    background-color: #00ace6;
+    color: white;
+}
+
+.addbtn{
+    background-color:  #0088cc;
+    color: white;
+}
+
+.acceptbtn{
+    background-color:  #0088cc;
+    color: white;
+    height:30px;
+    width: 70px;
+}
+
+.notbtn{
+    height:40px;
+    width: 140px;
+    background-color: #0088cc;
+    color: white;
+    font-size:20px;
+}
+
+.logoutbtn{
+    height:40px;
+    width: 100px;
+    background-color: red;
+    color: white;
+}
+
+.registerbtn{
+    color: white;
+    height:40px;
+    width: 100px;
+    background-color: #008040;
+}
+
+
+

@@ -1,0 +1,23 @@
+<div class="content container">
+    <div>
+        <h1 class="titel">Friends</h1>
+    </div>
+    <div class="container" fxLayout="row" fxLayout.sm="column" fxLayoutAlign="center">
+        <div fxFlex="50%">
+            <h1>Friendlist</h1>
+            <div *ngIf="friendLength == 0">You don't have any friends yet!</div>
+            <li *ngFor="let friend of (friends | async)" class="padding">{{friend.username}}</li>
+        </div>
+        <div fxFlex="50%">
+            <h1>Find user</h1>
+            <mat-form-field>
+                <input matInput placeholder="Username or Email" type="text" name="name" #name />
+            </mat-form-field>
+            <button mat-button class="searchbtn" (click)="findUserList(name.value)">Search Users</button>
+            <div *ngFor="let user of (users | async)" class="padding">
+                <button mat-button class="addbtn" (click)="addFriend(user.userId)">Add friend</button>
+                {{user.username}}
+            </div>
+        </div>
+    </div>
+</div>
